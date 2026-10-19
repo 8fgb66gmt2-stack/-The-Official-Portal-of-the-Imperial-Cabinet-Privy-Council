@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第拾參號附錄｜帝國内閣官報枢府</title>
+<style>
+:root{--paper:#f5efdf;--sheet:#fffaf0;--ink:#29251f;--green:#182b25;--red:#782532;--gold:#b18a4b;--muted:#756b5b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:serif;line-height:1.9}.head{padding:14px 20px;background:var(--green);color:#f6efdf;letter-spacing:.08em}.sheet{max-width:780px;margin:34px auto;padding:clamp(20px,4vw,38px);background:var(--sheet);border:1px solid #c8b58c;box-shadow:0 8px 28px #4b3c2010}.kicker{color:var(--muted);font-size:.75rem;letter-spacing:.15em}h1,h2{color:var(--red);font-weight:600}h1{font-size:clamp(1.8rem,5vw,2.8rem)}.stamp{display:inline-block;border:1px solid var(--red);color:var(--red);padding:2px 10px;letter-spacing:.12em;font-size:.82rem}.meta{display:grid;grid-template-columns:130px 1fr;border-top:1px solid #d8c7a5;margin:22px 0}.meta div{padding:9px 10px;border-bottom:1px solid #d8c7a5}.meta div:nth-child(odd){color:var(--muted);background:#f8f0df}.document{padding:20px;border:1px solid #d8c7a5;background:#fcf6e9;margin:24px 0}.document p{margin:.5em 0}.note{border-left:3px solid var(--gold);padding:10px 14px;margin:22px 0;background:#f8f0df}.question{padding:20px;border:1px solid var(--gold);margin-top:26px}label{display:block;font-weight:700;margin:10px 0 6px}input{width:100%;padding:13px;font:inherit;border:1px solid #ad9b79;background:#fffdf8}button,.next{display:inline-block;margin-top:12px;padding:11px 17px;border:0;background:var(--green);color:#fff8e9;font:inherit;cursor:pointer;text-decoration:none}.next[hidden]{display:none}.feedback{min-height:3em}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #9a6e26;outline-offset:3px}.back{color:var(--red)}@media(max-width:600px){.sheet{margin:16px 10px}.meta{grid-template-columns:100px 1fr}}
+</style>
+</head>
+<body>
+<header class="head">日ノ本帝國｜帝國内閣官報枢府</header>
+<main class="sheet">
+<div class="kicker">ARCHIVAL COPY / NOT LISTED IN THE PUBLIC INDEX</div>
+<h1>官報附錄 第拾參號</h1>
+<span class="stamp">目録不登載・複寫本</span>
+<div class="meta"><div>發行日</div><div>冬至祭祀翌日</div><div>公開目録</div><div>登載なし</div><div>文書状態</div><div>原本所在不明／回収処理済</div></div>
+<section class="document">
+<p>本附錄は、三機關に跨る記録照合のため、記録管理係において複寫されたものである。</p>
+<p>公開目録より削除すべき旨の指示は記されていない。然るに、目録の編纂時点で本號は既に存在しなかったものとして扱われている。</p>
+<p>原本に関する欄外記載は、次の一行のみ。</p>
+<div class="note">「回収先ノ部署名ハ、目録ニ記載セズ。受領簿ニハ正式ノ名稱ヲ記入スベシ。」</div>
+</section>
+<section class="question">
+<h2 style="margin-top:0">第二照合｜回収先</h2>
+<p>欄外記載は、部署名を目録には残さず、受領簿にだけ記すよう命じている。別紙の追記から、回収先の正式名稱を読み取れ。</p>
+<div class="note">追記：<strong>「記録保全係」</strong>——この名稱を照合鍵として用いよ。</div>
+<label for="answer">回収先部署名</label>
+<input id="answer" autocomplete="off" placeholder="部署名を入力">
+<button id="check" type="button">受領簿を照合する</button>
+<p id="feedback" class="feedback" role="status" aria-live="polite">部署名を入力してください。</p>
+<a id="next" class="next" href="./recovery-ledger.html" hidden>記録保全係・受領簿を開く　→</a>
+</section>
+<p><a class="back" href="./record-zero.html">← 記録零號へ戻る</a></p>
+</main>
+<script>
+(()=>{const input=document.getElementById('answer'),button=document.getElementById('check'),feedback=document.getElementById('feedback'),next=document.getElementById('next');
+function check(){const v=input.value.trim().replace(/[\s　]/g,'');if(v==='記録保全係'){feedback.textContent='照合成立。目録に存在しない部署名が、受領簿にだけ残されている。';next.hidden=false;}else{feedback.textContent='照合不成立。欄外の追記に記された正式名稱を入力せよ。';next.hidden=true;}}
+button.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter')check();})();
+})();
+</script>
+</body>
+</html>
